@@ -27,8 +27,7 @@ word.addEventListener("input", handleCharacterInput);
  */
 
 function randomWord() {
-  winner.classList.add("hidden");
-  audio.pause();
+  reset();
   fetch("./data.json")
     .then((res) => res.json())
     .then((data) => {
@@ -51,16 +50,16 @@ function randomWord() {
 function handleCharacterInput(event) {
   console.log(wordGuess);
   const character = event.target.value.toUpperCase();
-  const inputs = document.querySelectorAll(".inputs input");
 
   if (
     character.match(/[a-zA-Z]/) &&
     wordGuess.includes(character) &&
     !makeWord.includes(character)
   ) {
+    Allinputs = document.querySelectorAll(".inputs input");
     for (let i = 0; i < wordGuess.length; i++) {
       if (wordGuess[i] === character) {
-        inputs[i].value = character;
+        Allinputs[i].value = character;
         makeWord.push(character);
       }
     }
@@ -89,15 +88,12 @@ function handleCharacterInput(event) {
 
 function handelLose() {
   if (bigGuess <= 0) {
-    const inputs = document.querySelectorAll(".inputs input");
-
+    Allinputs = document.querySelectorAll(".inputs input");
     for (let i = 0; i < wordGuess.length; i++) {
-      inputs[i].value = wordGuess[i];
+      Allinputs[i].value = wordGuess[i];
     }
 
-    bigGuess = 12;
-    makeWord = [];
-    winner.classList.add("hidden");
+    reset();
 
     setTimeout(() => {
       numTrial.textContent = bigGuess;
@@ -105,4 +101,10 @@ function handelLose() {
       randomWord();
     }, 50);
   }
+}
+function reset() {
+  bigGuess = 12;
+  makeWord = [];
+  winner.classList.add("hidden");
+  audio.pause();
 }
