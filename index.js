@@ -14,6 +14,7 @@ let bigGuess = 12,
   wordGuess = "",
   disc = "";
 
+word.focus();
 window.onload = randomWord;
 button.addEventListener("click", randomWord);
 document.addEventListener("keydown", () => word.focus());
