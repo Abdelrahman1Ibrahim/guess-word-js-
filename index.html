@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Readex+Pro:wght@160..700&family=Roboto:wght@400;500;700;900&family=Sacramento&family=Titillium+Web:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>guess word</title>
+  </head>
+  <body>
+    <div class="winner  hidden">
+        <lottie-player class="hidden"
+          src="https://assets9.lottiefiles.com/packages/lf20_0y2x6xwo.json"
+          background="transparent"
+          speed="1"
+          style="width: 100%; height: 300px"
+          loop
+          autoplay
+        ></lottie-player>
+        </div>
+    <div class="container">
+        
+      <h1 class="title">خمن الكلمة</h1>
+      <div class="card">
+        <input class="word" type="text" maxlength="1" />
+        <div class="inputs">
+        </div>
+        <div class="info">
+          <p class="sentenceDisc" style="max-width: 95%;">Java Script Formater</p>
+          <p class="maxguess">عدد المحاولات : <span class="numTrial"></span></p>
+        </div>
+        <button>جرب تاني 😉</button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
